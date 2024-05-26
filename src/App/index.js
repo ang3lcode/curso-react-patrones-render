@@ -12,6 +12,7 @@ import { Modal } from "../Modal";
 import { TodoHeader } from "../TodoHeader";
 import { TodoCounter } from "../TodoCounter";
 import { TodoSearch } from "../TodoSearch";
+import { ChangeAlertWithStorageListener } from "../ChangeAlert";
 
 function App() {
   const {
@@ -27,6 +28,7 @@ function App() {
     searchValue,
     setSearchValue,
     addTodo,
+    sincronizeTodos,
   } = useTodos();
   return (
     <React.Fragment>
@@ -75,6 +77,8 @@ function App() {
       )}
 
       <CreateTodoButton setOpenModal={setOpenModal} />
+
+      <ChangeAlertWithStorageListener sincronize={sincronizeTodos} />
     </React.Fragment>
   );
 }
